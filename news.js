@@ -14,7 +14,7 @@ let categories = (cate) => {
        let categoriesOptionContainer = document.getElementById('categories-option-container')
        let createCategory = document.createElement('div')
        createCategory.innerHTML = `
-       <button onclick="newsBtn('${cates.category_id}')" class="text-[#858585] font-semibold bg-white btn border-none">${cates.category_name}</button>
+       <button onclick="newsBtn('${cates.category_id}')" class="text-[#858585] font-semibold btn bg-none border-none">${cates.category_name}</button>
        `
        categoriesOptionContainer.appendChild(createCategory)
     });
@@ -48,11 +48,11 @@ let allNews = (news) => {
         loading.classList.add('hidden')
         let createContainer = document.createElement('div')
         createContainer.innerHTML = `
-        <div class="hero w-full min-h-screen">
-        <div class="hero-content flex-col lg:flex-row gap-10">
-          <img src=${newsDetails.image_url} class="max-w-sm rounded-lg shadow-2xl"/>
+        <div class=" w-full md:w-[90%] mx-auto min-h-screen">
+        <div class="mx-auto hero-content flex-col lg:flex-row gap-10">
+          <img src=${newsDetails.image_url} class=" md:max-w-sm rounded-lg shadow-2xl"/>
           <div>
-            <h1 class="text-5xl font-bold">${newsDetails.title}</h1>
+            <h1 class="text-3xl md:text-5xl font-bold">${newsDetails.title}</h1>
             <p id="details" class="py-6 text-[#949494]">${newsDetails.details.slice(0,600)}</p>
              <!-- news-maker    -->
             <div class="news-maker-container flex justify-between items-center">
@@ -92,6 +92,18 @@ let allNews = (news) => {
         `
         newsDetailsContainer.appendChild(createContainer)
     });
+}
+
+let = serchBtn = () => {
+    let idSerch = document.getElementById('id-search').value 
+    let newsDetailsContainer = document.getElementById('news-details-container')
+    newsDetailsContainer.innerHTML = ''
+    if(idSerch){
+        newsDetail(idSerch)
+    }
+    else{
+        alert('pless give a value')
+    }
 }
 
 newsDetail('01')
